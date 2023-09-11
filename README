@@ -1,0 +1,48 @@
+# clashconf by dd
+
+注：所有文件请在使用前根据需要修改
+
+Clash 和 Subconverter 使用的配置文件 （自用）勿喷
+
+使用方式 https://sub.xeton.dev/ 远程配置填写以下ini链接 并转换
+
+---------------------------------------------------------------------------------------
+
+clash.ini 完整国内外分流版 Subconverter 配置文件
+
+较为精准的 半白名单式 抗污染 内外分流
+基于域名选择dns
+带有 HK TW JP SG US 国家自动测速策略 和故障转移策略
+带bilibili和bing分流
+
+产生大小 300kb
+
+链接 https://raw.githubusercontent.com/DoingDog/clashconf/main/clash.ini
+
+---------------------------------------------------------------------------------------
+
+aclash.ini 去广告增强版 Subconverter 配置文件
+
+基于 clash.ini 外加约5w去广告规则 可能造成卡顿
+
+产生大小 2.5mb
+
+链接 https://raw.githubusercontent.com/DoingDog/clashconf/main/aclash.ini
+
+---------------------------------------------------------------------------------------
+
+maclash.ini 去广告增强版 Subconverter 配置文件
+
+基于 aclash.ini 外加约2000流媒体，下载分流规则，用于节省流量
+
+产生大小 2.5mb
+
+链接 https://raw.githubusercontent.com/DoingDog/clashconf/main/maclash.ini
+
+---------------------------------------------------------------------------------------
+
+clash 配置文件模板
+
+大小 10kb
+
+链接 https://raw.githubusercontent.com/DoingDog/clashconf/main/base.yaml
