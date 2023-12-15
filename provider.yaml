@@ -1,0 +1,847 @@
+mixed-port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+allow-lan: true
+bind-address: "*"
+mode: rule
+routing-mark: 2048
+geodata-mode: false
+unified-delay: true
+udp: true
+enable-process: true
+geox-url:
+  mmdb: https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.mmdb
+  geoip: https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat
+  geosite: https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat
+iptables:
+  enable: true
+log-level: info
+profile:
+  store-selected: true
+  store-fake-ip: true
+  tracing: false
+ipv6: false
+external-controller: 0.0.0.0:9090
+secret: ""
+experimental:
+  ignore-resolve-fail: true
+hosts:
+  localhost: 127.0.0.1
+find-process-mode: strict
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+  force-domain:
+    - +.v2ex.com
+    - www.google.com
+    - google.com
+  skip-domain:
+    - Mijia Cloud
+    - dlg.io.mi.com
+    - +.apple.com
+global-client-fingerprint: chrome
+keep-alive-interval: 15
+tcp-concurrent: true
+clash-for-android:
+  append-system-dns: false
+tun:
+  enable: false
+  stack: gvisor
+  mtu: 9000
+  strict_route: true
+  macOS-auto-route: true
+  macOS-auto-detect-interface: true
+  dns-hijack:
+    - 0.0.0.0:53
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+cfw-latency-timeout: 1200
+cfw-latency-url: http://www.google.com/generate_204
+cfw-conn-break-strategy:
+  proxy: chain
+  profile: true
+  mode: true
+cfw-proxies-order: default
+cfw-bypass:
+  - localhost
+  - <local>
+dns:
+  enable: true
+  prefer-h3: true
+  ipv6: false
+  use-hosts: true
+  listen: 0.0.0.0:5533
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - cable.auth.com
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - network-test.debian.org
+    - detectportal.firefox.com
+    - resolver1.opendns.com
+    - "*.srv.nintendo.net"
+    - "*.stun.playstation.net"
+    - xbox.*.microsoft.com
+    - "*.xboxlive.com"
+    - stun.*
+    - global.turn.twilio.com
+    - global.stun.twilio.com
+    - localhost.*.qq.com
+    - "*.logon.battlenet.com.cn"
+    - "*.logon.battle.net"
+    - "*.blzstatic.cn"
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - proxy.golang.org
+    - "*.mcdn.bilivideo.cn"
+    - "*.cmpassport.com"
+    - id6.me
+    - open.e.189.cn
+    - mdn.open.wo.cn
+    - opencloud.wostore.cn
+    - auth.wosms.cn
+    - "*.jegotrip.com.cn"
+    - "*.icitymobile.mobi"
+    - "*.pingan.com.cn"
+    - "*.cmbchina.com"
+    - pool.ntp.org
+    - "*.pool.ntp.org"
+    - ntp.*.com
+    - time.*.com
+    - ntp?.*.com
+    - time?.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - "*.ntp.org.cn"
+    - PDC._msDCS.*.*
+    - DC._msDCS.*.*
+    - GC._msDCS.*.*
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+    - 119.29.29.29
+    - 119.28.28.28
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+    - https://1.12.12.12/dns-query
+    - https://120.53.53.53/dns-query
+  proxy-server-nameserver:
+    - https://dns.google.com/dns-query
+    - h3://odoh.cloudflare-dns.com/dns-query
+    - h3://anycast.dns.nextdns.io/dns-query
+    - h3://dns.nextdns.io/dns-query
+  fallback:
+    - https://dns.google.com/dns-query
+    - h3://odoh.cloudflare-dns.com/dns-query
+    - h3://anycast.dns.nextdns.io/dns-query
+    - h3://dns.nextdns.io/dns-query
+  nameserver-policy:
+    +.tencent*: 119.29.29.29
+    +.tencent*.*: 119.29.29.29
+    +.qcloud*.c*: 119.29.29.29
+    +.myqcloud.com: 119.29.29.29
+    +.qq.com: 119.29.29.29
+    +.qlogo.cn: 119.29.29.29
+    +.qpic.cn: 119.29.29.29
+    +.weixin.com: 119.29.29.29
+    +.weixinbridge.com: 119.29.29.29
+    "*wechat.com": 119.29.29.29
+    +.weiyun.com: 119.29.29.29
+    +.gtimg.cn: 119.29.29.29
+    +.idqqimg.com: 119.29.29.29
+    +.cdn-go.cn: 119.29.29.29
+    +.smtcdns.???: 119.29.29.29
+    url.cn: 119.29.29.29
+    +.alibaba*: 223.5.5.5
+    +.alibaba*.*: 223.5.5.5
+    +.1688.com: 223.5.5.5
+    +.taobao.com: 223.5.5.5
+    +.tbcache.com: 223.5.5.5
+    +.tmall.com: 223.5.5.5
+    +.alicdn.com: 223.5.5.5
+    +.aliyun*: 223.5.5.5
+    +.aliyun*.*: 223.5.5.5
+    +.aliapp.???: 223.5.5.5
+    +.mmstat.com: 223.5.5.5
+    +.alipay*: 223.5.5.5
+    +.alipay*.*: 223.5.5.5
+    tb.cn: 223.5.5.5
+    +.mzstatic.*: 223.5.5.5
+    +.aaplimg.*: 223.5.5.5
+    +.icloud.*: 223.5.5.5
+    +.apple.*: 223.5.5.5
+    "*-apple.*": 223.5.5.5
+    +.apple-*: 223.5.5.5
+    +.apple-*.*: 223.5.5.5
+    +.apple: 223.5.5.5
+    +.baidu: 114.114.114.114
+    +.baidu*: 114.114.114.114
+    +.baidu*.*: 114.114.114.114
+    +.bdimg.com: 114.114.114.114
+    +.bdstatic.com: 114.114.114.114
+    +.bdydns.*: 114.114.114.114
+    +.bdycdn.*: 114.114.114.114
+    +.bdysit*.com: 114.114.114.114
+    +.bce???.*: 114.114.114.114
+    dwz.cn: 114.114.114.114
+    +.360.cn: 101.226.4.6
+    +.360safe.com: 101.226.4.6
+    +.360kuai.com: 101.226.4.6
+    +.so.com: 101.226.4.6
+    +.360webcache.com: 101.226.4.6
+    +.qihuapi.com: 101.226.4.6
+    +.qhimg.com: 101.226.4.6
+    +.qhimgs.com: 101.226.4.6
+    +.qhimgs?.com: 101.226.4.6
+    +.qhmsg.com: 101.226.4.6
+    +.qhres.com: 101.226.4.6
+    +.qhres?.com: 101.226.4.6
+    +.dhrest.com: 101.226.4.6
+    +.qhupdate.com: 101.226.4.6
+    +.yunpan.cn: 101.226.4.6
+    +.yunpan.com.cn: 101.226.4.6
+    +.yunpan.com: 101.226.4.6
+    urlqh.cn: 101.226.4.6
+    +.bilibili.com: 119.29.29.29
+    +.biliapi.???: 119.29.29.29
+    +.bilicdn?.com: 119.29.29.29
+    +.hdslb.???: 119.29.29.29
+    +.bilivideo.c*: 119.29.29.29
+    +.acg.tv: 119.29.29.29
+    +.jd.com: 223.5.5.5
+    +.360buyimg.com: 223.5.5.5
+    +.jdcloud.com: 223.5.5.5
+    +.jcloudstatic.???: 223.5.5.5
+    +.jdgslb.com: 223.5.5.5
+    3.cn: 223.5.5.5
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite:
+      - gfw
+    ipcidr:
+      - 240.0.0.0/4
+      - 127.0.0.0/8
+      - 0.0.0.0/8
+      - 100.64.0.0/10
+      - 169.254.0.0/16
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 255.255.255.255/32
+    domain:
+      - +.google.com
+      - +.facebook.com
+      - +.youtube.com
+      - +.google.cn
+      - +.googleapis.cn
+      - +.translate.googleapis.com
+      - +.safebrowsing.googleapis.com
+      - +.clientservices.googleapis.com
+      - +.bing.com
+      - +.linkedin.com
+      - +.msn.cn
+      - +.playstationnetwork.com
+      - +.sony.com
+      - +.sonyentertainmentnetwork.com
+      - +.playstation.com
+      - .ac
+      - .ad
+      - .ae
+      - .aero
+      - .af
+      - .ag
+      - .ai
+      - .al
+      - .am
+      - .ao
+      - .app
+      - .aq
+      - .ar
+      - .art
+      - .as
+      - .asia
+      - .at
+      - .au
+      - .aw
+      - .ax
+      - .az
+      - .ba
+      - .bar
+      - .bb
+      - .bd
+      - .be
+      - .beauty
+      - .best
+      - .bf
+      - .bg
+      - .bh
+      - .bi
+      - .bible
+      - .biz
+      - .bj
+      - .bm
+      - .bn
+      - .bo
+      - .br
+      - .bs
+      - .bt
+      - .buzz
+      - .bw
+      - .by
+      - .bz
+      - .ca
+      - .cat
+      - .catholic
+      - .cd
+      - .cf
+      - .cg
+      - .ch
+      - .chat
+      - .church
+      - .ci
+      - .ck
+      - .cl
+      - .cloud
+      - .club
+      - .cm
+      - .co
+      - .college
+      - .company
+      - .cool
+      - .coop
+      - .cr
+      - .cu
+      - .cv
+      - .cw
+      - .cx
+      - .cy
+      - .cyou
+      - .cz
+      - .day
+      - .de
+      - .design
+      - .dev
+      - .digital
+      - .dj
+      - .dk
+      - .dm
+      - .do
+      - .dog
+      - .download
+      - .dz
+      - .earth
+      - .ec
+      - .eco
+      - .edu
+      - .ee
+      - .eg
+      - .er
+      - .es
+      - .et
+      - .eu
+      - .eu.org
+      - .fi
+      - .fit
+      - .fj
+      - .fk
+      - .fm
+      - .fo
+      - .fr
+      - .fun
+      - .fyi
+      - .ga
+      - .game
+      - .gay
+      - .gd
+      - .ge
+      - .gf
+      - .gg
+      - .gh
+      - .gi
+      - .gl
+      - .glass
+      - .global
+      - .gm
+      - .gn
+      - .google
+      - .gov
+      - .gp
+      - .gq
+      - .gr
+      - .green
+      - .gs
+      - .gt
+      - .gu
+      - .gw
+      - .gy
+      - .health
+      - .hk
+      - .hm
+      - .hn
+      - .homes
+      - .host
+      - .hr
+      - .ht
+      - .hu
+      - .icu
+      - .id
+      - .ie
+      - .il
+      - .im
+      - .in
+      - .inc
+      - .info
+      - .ink
+      - .int
+      - .iq
+      - .ir
+      - .is
+      - .it
+      - .je
+      - .jm
+      - .jo
+      - .jobs
+      - .jp
+      - .ke
+      - .kg
+      - .kh
+      - .ki
+      - .kid
+      - .km
+      - .kn
+      - .kp
+      - .kr
+      - .kw
+      - .ky
+      - .kz
+      - .la
+      - .lb
+      - .lc
+      - .li
+      - .life
+      - .link
+      - .live
+      - .lk
+      - .loan
+      - .lol
+      - .love
+      - .lr
+      - .ls
+      - .lt
+      - .lu
+      - .lv
+      - .ly
+      - .ma
+      - .mc
+      - .md
+      - .me
+      - .media
+      - .men
+      - .mg
+      - .mh
+      - .mil
+      - .mk
+      - .ml
+      - .mm
+      - .mn
+      - .mo
+      - .mobi
+      - .moe
+      - .monster
+      - .mp
+      - .mq
+      - .mr
+      - .ms
+      - .mt
+      - .mu
+      - .museum
+      - .mv
+      - .mw
+      - .mx
+      - .my
+      - .mz
+      - .na
+      - .name
+      - .nc
+      - .ne
+      - .network
+      - .nf
+      - .ng
+      - .ni
+      - .nl
+      - .no
+      - .np
+      - .nr
+      - .nu
+      - .nz
+      - .om
+      - .one
+      - .online
+      - .ooo
+      - .pa
+      - .pe
+      - .pf
+      - .pg
+      - .ph
+      - .pics
+      - .pk
+      - .pl
+      - .pm
+      - .pn
+      - .post
+      - .pr
+      - .pro
+      - .ps
+      - .pt
+      - .pub
+      - .pw
+      - .py
+      - .qa
+      - .quest
+      - .re
+      - .rest
+      - .rip
+      - .ro
+      - .rocks
+      - .rs
+      - .ru
+      - .run
+      - .rw
+      - .sa
+      - .sb
+      - .sbs
+      - .sc
+      - .sd
+      - .se
+      - .sex
+      - .sg
+      - .sh
+      - .shop
+      - .si
+      - .site
+      - .sk
+      - .sl
+      - .sm
+      - .sn
+      - .so
+      - .space
+      - .sr
+      - .ss
+      - .st
+      - .store
+      - .su
+      - .sv
+      - .sx
+      - .sy
+      - .sz
+      - .tc
+      - .td
+      - .team
+      - .tech
+      - .tel
+      - .tf
+      - .tg
+      - .th
+      - .tj
+      - .tk
+      - .tl
+      - .tm
+      - .tn
+      - .to
+      - .today
+      - .tokyo
+      - .top
+      - .tr
+      - .travel
+      - .tt
+      - .tv
+      - .tw
+      - .tz
+      - .ua
+      - .ug
+      - .uk
+      - .uno
+      - .us
+      - .uy
+      - .uz
+      - .va
+      - .vc
+      - .ve
+      - .vg
+      - .vi
+      - .video
+      - .vip
+      - .vn
+      - .vu
+      - .website
+      - .wf
+      - .wiki
+      - .win
+      - .work
+      - .ws
+      - .wtf
+      - .xxx
+      - .xyz
+      - .ye
+      - .yt
+      - .za
+      - .zm
+      - .zone
+      - .zw
+proxy-providers:
+  provider:
+    type: http
+    url: 这里写你的代理订阅
+    interval: 7200
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+proxy-groups:
+  - name: ✈️ 代理
+    type: select
+    proxies:
+      - 🍥 自动测试
+      - ⚡️ 负载均衡
+      - ♾️ 故障转移
+      - 👋 手动
+      - 🇭🇰 自动HK
+      - 🇨🇳 自动TW
+      - 🇯🇵 自动JP
+      - 🇸🇬 自动SG
+      - 🇺🇸 自动US
+      - 🇭🇰 循环HK
+      - 🇨🇳 循环TW
+      - 🇯🇵 循环JP
+      - 🇸🇬 循环SG
+      - 🇺🇸 循环US
+      - DIRECT
+      - REJECT
+  - name: 👋 手动
+    type: select
+    use:
+      - provider
+  - name: 🔍 必应
+    type: select
+    proxies:
+      - DIRECT
+      - REJECT
+      - ✈️ 代理
+      - 👋 手动
+      - 🇭🇰 自动HK
+      - 🇨🇳 自动TW
+      - 🇯🇵 自动JP
+      - 🇸🇬 自动SG
+      - 🇺🇸 自动US
+  - name: 📺 B站
+    type: select
+    proxies:
+      - DIRECT
+      - REJECT
+      - ✈️ 代理
+      - 👋 手动
+      - 🇭🇰 自动HK
+      - 🇨🇳 自动TW
+      - 🇯🇵 自动JP
+      - 🇸🇬 自动SG
+      - 🇺🇸 自动US
+  - name: 🍥 自动测试
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+  - name: ⚡️ 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+  - name: ♾️ 故障转移
+    type: fallback
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    proxies:
+      - 🇭🇰 自动HK
+      - 🇨🇳 自动TW
+      - 🇯🇵 自动JP
+      - 🇸🇬 自动SG
+      - 🇺🇸 自动US
+      - 🍥 自动测试
+  - name: 🇭🇰 自动HK
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)港|hk|hongkong|hong kong"
+  - name: 🇨🇳 自动TW
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)湾"
+  - name: 🇯🇵 自动JP
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)日"
+  - name: 🇸🇬 自动SG
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)新"
+  - name: 🇺🇸 自动US
+    type: url-test
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)美"
+  - name: 🇭🇰 循环HK
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)港|hk|hongkong|hong kong"
+  - name: 🇨🇳 循环TW
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)湾"
+  - name: 🇯🇵 循环JP
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)日"
+  - name: 🇸🇬 循环SG
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)新"
+  - name: 🇺🇸 循环US
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.google.com/generate_204
+    interval: 120
+    tolerance: 200
+    use:
+      - provider
+    filter: "(?i)美"
+  - name: 🎯 直连
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 代理
+      - REJECT
+rule-providers:
+  white:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/DoingDog/rconvert/main/static/main/Direct.list"
+    interval: 600
+  bing:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/DoingDog/FuckDOMAINSET/main/cv/downms.txt"
+    interval: 600
+  bilibili:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/DoingDog/rconvert/main/static/serv/bili.list"
+    interval: 600
+  proxy:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/DoingDog/rconvert/main/static/main/Proxy.list"
+    interval: 600
+  direct:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/DoingDog/rconvert/main/dirt/fin.txt"
+    interval: 600
+  directip:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaIPsBGP/ChinaIPsBGP_Resolve.list"
+    interval: 600
+rules:
+  - RULE-SET,white,🎯 直连
+  - RULE-SET,bing,🔍 必应
+  - RULE-SET,bilibili,📺 B站
+  - RULE-SET,proxy,✈️ 代理
+  - RULE-SET,direct,🎯 直连
+  - RULE-SET,directip,🎯 直连
+  - MATCH,✈️ 代理
